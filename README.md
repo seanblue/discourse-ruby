@@ -1,2 +1,3 @@
-# discourse-ruby
 Adds ruby markdown support to Discourse
+
+Based on https://github.com/lostandfound/markdown-it-ruby.
