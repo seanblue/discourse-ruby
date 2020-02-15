@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe PrettyText do
   before do
-    SiteSetting.queue_jobs = false
+    Jobs.run_immediately!
   end
 
   it "can still parse non-markdown" do
