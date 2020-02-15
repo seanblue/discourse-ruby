@@ -228,4 +228,17 @@ describe PrettyText do
     expect(cooked).to eq(html.strip)
   end
 
+  it "can be wrapped in single backticks" do
+    markdown = <<~MD
+      ``{漢字|かん|じ}``
+    MD
+
+    html = <<~HTML
+      <p><code>{漢字|かん|じ}</code></p>
+    HTML
+
+    cooked = PrettyText.cook markdown.strip
+    expect(cooked).to eq(html.strip)
+  end
+
 end
