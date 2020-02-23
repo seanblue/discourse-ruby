@@ -7,6 +7,21 @@ describe PrettyText do
     Jobs.run_immediately!
   end
 
+  it "can be disabled" do
+    SiteSetting.enable_markdown_ruby = false
+
+    markdown = <<~MD
+      Here is some text: {漢字|かん|じ}.
+    MD
+
+    html = <<~HTML
+      <p>Here is some text: {漢字|かん|じ}.</p>
+    HTML
+
+    cooked = PrettyText.cook markdown.strip
+    expect(cooked).to eq(html.strip)
+  end
+
   it "can still parse non-markdown" do
     markdown = <<~MD
       ordinary text
