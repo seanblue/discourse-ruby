@@ -1,6 +1,6 @@
 export function setup(helper) {
   helper.registerOptions((opts, siteSettings) => {
-    opts.features["ruby"] = !!siteSettings.enable_markdown_ruby;
+    opts.features["markdown-ruby"] = !!siteSettings.enable_markdown_ruby;
   });
 
   helper.registerPlugin(window.markdownitRuby);
